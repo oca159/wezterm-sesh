@@ -23,75 +23,75 @@ It follows the WezTerm workspace recipe model (`SwitchToWorkspace` + mux workspa
 In your `~/.wezterm.lua`, add this line to use the plugin:
 
 ```lua
-local wezsesh = wezterm.plugin.require("https://github.com/oca159/wezterm-sesh")
+local wezsesh = wezterm.plugin.require("https://github.com/oca159/wezsesh.wezterm")
 ```
 
 ## Basic setup
 
 ```lua
-local wezsesh = wezterm.plugin.require("https://github.com/oca159/wezterm-sesh")
+local wezsesh = wezterm.plugin.require("https://github.com/oca159/wezsesh.wezterm")
 
 local config = {}
 
 wezsesh.setup({
-	zoxide_path = "zoxide",
-	inline_preview = true,
-	default_session = {
-		startup_command = "nvim",
-		preview_command = "",
-	},
-	workspace_formatter = function(label, choice)
-		local prefix = "[path]"
-		local display_color = "#cdd6f4"
-		if choice.kind == "workspace" then
-			prefix = ": "
-			display_color = "#fab387"
-		elseif choice.kind == "zoxide" then
-			prefix = ": "
-		elseif choice.kind == "session" then
-			prefix = ": "
-			display_color = "#89b4fa"
-		end
+ zoxide_path = "zoxide",
+ inline_preview = true,
+ default_session = {
+  startup_command = "nvim",
+  preview_command = "",
+ },
+ workspace_formatter = function(label, choice)
+  local prefix = "[path]"
+  local display_color = "#cdd6f4"
+  if choice.kind == "workspace" then
+   prefix = ": "
+   display_color = "#fab387"
+  elseif choice.kind == "zoxide" then
+   prefix = ": "
+  elseif choice.kind == "session" then
+   prefix = ": "
+   display_color = "#89b4fa"
+  end
 
-		local text = string.format("%s %s", prefix, label)
-		if choice.preview and choice.preview ~= "" then
-			text = text .. " -- " .. choice.preview
-		end
+  local text = string.format("%s %s", prefix, label)
+  if choice.preview and choice.preview ~= "" then
+   text = text .. " -- " .. choice.preview
+  end
 
-		return wezterm.format({
-			{ Attribute = { Italic = false } },
-			{ Foreground = { Color = display_color } },
-			{ Background = { Color = "#1e1e2e" } },
-			{ Text = prefix .. label },
-		})
-	end,
-	sessions = {
-		{
-			name = "aws credentials",
-			path = "~/.aws",
-			startup_command = "nvim credentials",
-		},
-		{
-			name = "dotfiles",
-			path = "~/dotfiles",
-			startup_command = "nvim",
-		},
-		{
-			name = "nix",
-			path = "~/dotfiles/nix",
-			startup_command = "nvim flake.nix",
-		},
-		{
-			name = "tmux",
-			path = "~/dotfiles/tmux",
-			startup_command = "nvim tmux.conf",
-		},
-		{
-			name = "wezterm",
-			path = "~/dotfiles/wezterm",
-			startup_command = "nvim wezterm.lua",
-		},
-	},
+  return wezterm.format({
+   { Attribute = { Italic = false } },
+   { Foreground = { Color = display_color } },
+   { Background = { Color = "#1e1e2e" } },
+   { Text = prefix .. label },
+  })
+ end,
+ sessions = {
+  {
+   name = "aws credentials",
+   path = "~/.aws",
+   startup_command = "nvim credentials",
+  },
+  {
+   name = "dotfiles",
+   path = "~/dotfiles",
+   startup_command = "nvim",
+  },
+  {
+   name = "nix",
+   path = "~/dotfiles/nix",
+   startup_command = "nvim flake.nix",
+  },
+  {
+   name = "tmux",
+   path = "~/dotfiles/tmux",
+   startup_command = "nvim tmux.conf",
+  },
+  {
+   name = "wezterm",
+   path = "~/dotfiles/wezterm",
+   startup_command = "nvim wezterm.lua",
+  },
+ },
 })
 
 wezsesh.apply_to_config(config, {
