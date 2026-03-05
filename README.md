@@ -26,8 +26,8 @@ In your `~/.wezterm.lua`, add this repo to `package.path` and require `plugin/in
 local wezterm = require("wezterm")
 
 package.path = package.path
-  .. ";/Users/osvaldo/Workspace/wezterm-sesh/?.lua"
-  .. ";/Users/osvaldo/Workspace/wezterm-sesh/?/init.lua"
+  .. ";/Users/your-user/Workspace/wezterm-sesh/?.lua"
+  .. ";/Users/your-user/Workspace/wezterm-sesh/?/init.lua"
 
 local wezsesh = require("plugin")
 ```
@@ -38,8 +38,8 @@ local wezsesh = require("plugin")
 local wezterm = require("wezterm")
 
 package.path = package.path
-  .. ";/Users/osvaldo/Workspace/wezterm-sesh/?.lua"
-  .. ";/Users/osvaldo/Workspace/wezterm-sesh/?/init.lua"
+  .. ";/Users/your-user/Workspace/wezterm-sesh/?.lua"
+  .. ";/Users/your-user/Workspace/wezterm-sesh/?/init.lua"
 
 local wezsesh = require("plugin")
 
