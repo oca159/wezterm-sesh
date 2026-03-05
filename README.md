@@ -1,6 +1,6 @@
 # wezsesh (WezTerm plugin)
 
-`wezsesh` is now a native **WezTerm plugin** (not a CLI tool).
+`wezsesh` is a wezterm plugin to manage sessions, it is inspired by the popular sesh tool.
 
 It follows the WezTerm workspace recipe model (`SwitchToWorkspace` + mux workspaces) and uses a fuzzy `InputSelector` flow inspired by `smart_workspace_switcher.wezterm`.
 
@@ -20,28 +20,16 @@ It follows the WezTerm workspace recipe model (`SwitchToWorkspace` + mux workspa
 
 ## Install (local plugin)
 
-In your `~/.wezterm.lua`, add this repo to `package.path` and require `plugin/init.lua`:
+In your `~/.wezterm.lua`, add this line to use the plugin:
 
 ```lua
-local wezterm = require("wezterm")
-
-package.path = package.path
-  .. ";/Users/your-user/Workspace/wezterm-sesh/?.lua"
-  .. ";/Users/your-user/Workspace/wezterm-sesh/?/init.lua"
-
-local wezsesh = require("plugin")
+local wezsesh = wezterm.plugin.require("https://github.com/oca159/wezterm-sesh")
 ```
 
 ## Basic setup
 
 ```lua
-local wezterm = require("wezterm")
-
-package.path = package.path
-  .. ";/Users/your-user/Workspace/wezterm-sesh/?.lua"
-  .. ";/Users/your-user/Workspace/wezterm-sesh/?/init.lua"
-
-local wezsesh = require("plugin")
+local wezsesh = wezterm.plugin.require("https://github.com/oca159/wezterm-sesh")
 
 local config = {}
 
