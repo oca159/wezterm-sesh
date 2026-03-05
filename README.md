@@ -18,7 +18,7 @@ It follows the WezTerm workspace recipe model (`SwitchToWorkspace` + mux workspa
 - Optional startup command (global, session, wildcard, prompt)
 - Optional inline preview text in picker labels
 
-## Install (local plugin)
+## Install
 
 In your `~/.wezterm.lua`, add this line to use the plugin:
 
